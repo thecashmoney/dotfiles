@@ -13,13 +13,13 @@ logger = logging.getLogger(__name__)
 
 def write_output(text, player):
     logger.info('Writing output')
-
+    text = "🎵 | " + text
     output = {'text': text,
               'class': 'custom-' + player.props.player_name,
               'alt': player.props.player_name
               }
 
-    sys.stdout.write(json.dumps(output, separators=(',', ':')))
+    sys.stdout.write(json.dumps(output, separators=(',', ':')) + '\n')
     sys.stdout.flush()
 
 
@@ -43,7 +43,7 @@ def on_metadata(player, metadata, manager):
         track_info = player.get_title()
 
     if player.props.status != 'Playing' and track_info:
-        track_info = track_info
+        track_info = "  " + track_info
     write_output(track_info, player)
 
 
