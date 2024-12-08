@@ -77,16 +77,10 @@
         "max-length": 10
     },
     "custom/media": {
-        //"format": "{icon}  {text}",
         "interval": 0,
-        "format": {"alt": "{icon}", "text": ""},
+        "format": {"text": ""},
         "return-type": "json",
         "max-length": 50,
-        "format-icons": {
-            "spotify": " ",
-            "default": "🎵 "
-        },
-        "escape": false,
         "exec": "python3 -u $HOME/.config/system_scripts/mediaplayer.py",
         "on-click": "playerctl play-pause"
     },

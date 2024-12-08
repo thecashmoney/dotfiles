@@ -13,7 +13,10 @@ logger = logging.getLogger(__name__)
 
 def write_output(text, player):
     logger.info('Writing output')
-    text = "🎵 | " + text
+    if (player.props.player_name == "spotify"):
+        text = " | " + text
+    else:
+        text = "🎵 | " + text
     output = {'text': text,
               'class': 'custom-' + player.props.player_name,
               'alt': player.props.player_name
